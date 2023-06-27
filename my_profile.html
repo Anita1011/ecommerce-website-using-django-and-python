@@ -1,0 +1,110 @@
+{% extends 'ecom/customer_base.html' %}
+{% load static %}
+{% block content %}
+
+
+<style media="screen">
+  body {
+    background-color:#f7f7f7;
+  }
+  .button {
+  display: inline-block;
+  border-radius: 4px;
+  background-color: #c0186c;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 28px;
+  padding: 20px;
+  width: 200px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+  }
+
+  .button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+  }
+
+  .button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+  }
+
+  .button:hover span {
+  padding-right: 25px;
+  }
+
+  .button:hover span:after {
+  opacity: 1;
+  right: 0;
+  }
+#navbar {
+    background-color: pink;
+    color: black;
+}
+.navbar-button {
+    background-color: #c0186c;
+    border: 1px solid #c0186c;
+    border-radius: 0 2px 2px 0;
+    color: #565656;
+    padding: 10px 0;
+    height: 43px;
+    cursor: pointer
+}
+.cart-button {
+    background-color: #c2147e;
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, .23), inset 1px 1px 0 0 hsla(0, 0%, 100%, .2);
+    padding: 10px 0;
+    text-align: center;
+    height: 41px;
+    border-radius: 2px;
+    font-weight: 500;
+    width: 120px;
+    display: inline-block;
+    color: #FFFFFF;
+    text-decoration: none;
+    color: inherit;
+    border: none;
+    outline: none
+}
+.btn-primary {
+    color: #fff;
+    background-color: #6d1a50;
+    border-color: #5a204b;
+}
+</style>
+<br><br><br>
+<div style="padding-left:300px;" class="container">
+
+        <div class="col-sm-2 col-md-2">
+            <img src="{% static customer.profile_pic.url %}"   alt="profile pic" class="img-rounded img-responsive" />
+        </div>
+        <div class="col-sm-4 col-md-4">
+            <blockquote>
+                <p>Username: {{request.user}}</p> <small><cite title="Source Title">Address: {{customer.address}}  <i class="glyphicon glyphicon-map-marker"></i></cite></small>
+            </blockquote>
+            <p><i class="glyphicon glyphicon-phone"></i>Contact: {{customer.mobile}}
+            </p>
+        </div>
+
+</div>
+<br>
+<div style="text-align: center;">
+  <a href="/edit-profile"><button class="btn btn-primary btn-lg" ><span>Edit Profile </span></button></a>
+</div>
+<br><br><br><br><br><br>
+<!--
+developed By : Anita
+-->
+
+
+
+{% endblock content %}
